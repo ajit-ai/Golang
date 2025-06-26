@@ -8,4 +8,7 @@ func main() {
 	var k int = 30
 
 	fmt.Println("i + j + k =", i+j+k)
+	fmt.Println("i * j * k =", i*j*k)
+	fmt.Println("i - j - k =", i-j-k)
+	fmt.Println("i / j / k =", i/j/k)
 }
