@@ -1,13 +1,10 @@
-//main package has examples shown
-// in Go Data Structures and algorithms book
 package main
 
-// importing fmt package
 import (
 	"fmt"
 )
 
-//findElementsWithSum  of k from arr of size
+// findElementsWithSum  of k from arr of size
 func findElementsWithSum(arr [10]int, combinations [19]int, size int, k int, addValue int, l int, m int) int {
 
 	var num int = 0

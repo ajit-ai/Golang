@@ -1,13 +1,10 @@
-//main package has examples shown
-// in Go Data Structures and algorithms book
 package main
 
-// importing fmt package
 import (
 	"fmt"
 )
 
-//findElement method given array and k element
+// findElement method given array and k element
 func findElement(arr [10]int, k int) bool {
 	var i int
 	for i = 0; i < 10; i++ {
