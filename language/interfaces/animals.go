@@ -86,3 +86,9 @@ func EmbeddingMain() {
 	var t Triathlete = Human{Name: "Priya"}
 	fmt.Println(TrainAthlete(t))
 }
+
+// main runs the demo entry points of this package
+func main() {
+	InterfacesMain()
+	EmbeddingMain()
+}

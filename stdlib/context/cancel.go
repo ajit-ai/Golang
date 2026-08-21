@@ -64,3 +64,8 @@ func ContextMain() {
 	authed := context.WithValue(context.Background(), userKey{}, "ajit")
 	fmt.Println("user from context:", Values(authed))
 }
+
+// main runs the demo entry points of this package
+func main() {
+	ContextMain()
+}
