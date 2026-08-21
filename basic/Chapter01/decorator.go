@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,25 +7,25 @@ import (
 	"fmt"
 )
 
-// IProcess Interface
-type IProcess interface {
+// DecoratorIProcess Interface
+type DecoratorIProcess interface {
 	process()
 }
 
-//ProcessClass struct
+// ProcessClass struct
 type ProcessClass struct{}
 
-//ProcessClass method process
+// ProcessClass method process
 func (process *ProcessClass) process() {
 	fmt.Println("ProcessClass process")
 }
 
-//ProcessDecorator struct
+// ProcessDecorator struct
 type ProcessDecorator struct {
 	processInstance *ProcessClass
 }
 
-//ProcessDecorator class method process
+// ProcessDecorator class method process
 func (decorator *ProcessDecorator) process() {
 	if decorator.processInstance == nil {
 		fmt.Println("ProcessDecorator  process")
@@ -36,8 +36,8 @@ func (decorator *ProcessDecorator) process() {
 	}
 }
 
-//main method
-func main() {
+// DecoratorMain method
+func DecoratorMain() {
 
 	var process = &ProcessClass{}
 

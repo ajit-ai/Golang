@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -8,7 +8,7 @@ import (
 )
 
 // main method
-func main() {
+func AppendSliceMain() {
 
 	var arr = []int{5, 6, 7, 8, 9}
 	var slic1 = arr[:3]

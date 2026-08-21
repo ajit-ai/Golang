@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -8,40 +8,40 @@ import (
 	"fmt"
 )
 
-//AccountDetails struct
+// AccountDetails struct
 type AccountDetails struct {
 	id          string
 	accountType string
 }
 
-//Account struct
-type Account struct {
+// PrivateClassAccount struct
+type PrivateClassAccount struct {
 	details      *AccountDetails
 	CustomerName string
 }
 
-// Account class method setDetails
-func (account *Account) setDetails(id string, accountType string) {
+// PrivateClassAccount class method setDetails
+func (account *PrivateClassAccount) setDetails(id string, accountType string) {
 
 	account.details = &AccountDetails{id, accountType}
 }
 
-//Account class method getId
-func (account *Account) getId() string {
+// PrivateClassAccount class method getId
+func (account *PrivateClassAccount) getId() string {
 
 	return account.details.id
 }
 
-//Account class method getAccountType
-func (account *Account) getAccountType() string {
+// PrivateClassAccount class method getAccountType
+func (account *PrivateClassAccount) getAccountType() string {
 
 	return account.details.accountType
 }
 
-// main method
-func main() {
+// PrivateClassMain method
+func PrivateClassMain() {
 
-	var account *Account = &Account{CustomerName: "John Smith"}
+	var account *PrivateClassAccount = &PrivateClassAccount{CustomerName: "John Smith"}
 	account.setDetails("4532", "current")
 
 	jsonAccount, _ := json.Marshal(account)

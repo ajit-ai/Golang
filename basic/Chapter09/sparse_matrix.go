@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,14 +7,14 @@ import (
 	"fmt"
 )
 
-//List of List
+// List of List
 type LOL struct {
 	Row    int
 	Column int
 	Value  float64
 }
 
-//Sparse Matrix
+// Sparse Matrix
 type SparseMatrix struct {
 	cells []LOL
 	shape [2]int
@@ -68,7 +68,7 @@ func (sparseMatrix *SparseMatrix) GetValue(i int, j int) float64 {
 	return 0.0
 }
 
-//SetValue method
+// SetValue method
 func (sparseMatrix *SparseMatrix) SetValue(i int, j int, value float64) {
 
 	var lol LOL
@@ -110,7 +110,7 @@ func NewSparseMatrix(m int, n int) *SparseMatrix {
 }
 
 // main method
-func main() {
+func SparseMatrixMain() {
 
 	var sparseMatrix *SparseMatrix
 

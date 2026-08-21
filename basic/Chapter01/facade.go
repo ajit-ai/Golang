@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,45 +7,45 @@ import (
 	"fmt"
 )
 
-//Account struct
-type Account struct {
+// FacadeAccount struct
+type FacadeAccount struct {
 	id          string
 	accountType string
 }
 
-//Account class method create - creates account given AccountType
-func (account *Account) create(accountType string) *Account {
+// FacadeAccount class method create - creates account given AccountType
+func (account *FacadeAccount) create(accountType string) *FacadeAccount {
 	fmt.Println("account creation with type")
 	account.accountType = accountType
 
 	return account
 }
 
-//Account class method getById  given id string
-func (account *Account) getById(id string) *Account {
+// FacadeAccount class method getById  given id string
+func (account *FacadeAccount) getById(id string) *FacadeAccount {
 	fmt.Println("getting account by Id")
 	return account
 }
 
-//Account class method deleteById given id string
-func (account *Account) deleteById(id string) {
+// FacadeAccount class method deleteById given id string
+func (account *FacadeAccount) deleteById(id string) {
 	fmt.Println("delete account by id")
 }
 
-//Customer struct
-type Customer struct {
+// FacadeCustomer struct
+type FacadeCustomer struct {
 	name string
 	id   int
 }
 
-//Customer class method create - create Customer given nam
-func (customer *Customer) create(name string) *Customer {
+// FacadeCustomer class method create - create Customer given nam
+func (customer *FacadeCustomer) create(name string) *FacadeCustomer {
 	fmt.Println("creating customer")
 	customer.name = name
 	return customer
 }
 
-//Transaction struct
+// Transaction struct
 type Transaction struct {
 	id            string
 	amount        float32
@@ -53,7 +53,7 @@ type Transaction struct {
 	destAccountId string
 }
 
-//Transaction class method create Transaction
+// Transaction class method create Transaction
 func (transaction *Transaction) create(srcAccountId string, destAccountId string, amount float32) *Transaction {
 	fmt.Println("creating transaction")
 	transaction.srcAccountId = srcAccountId
@@ -62,26 +62,26 @@ func (transaction *Transaction) create(srcAccountId string, destAccountId string
 	return transaction
 }
 
-//BranchManagerFacade struct
+// BranchManagerFacade struct
 type BranchManagerFacade struct {
-	account     *Account
-	customer    *Customer
+	account     *FacadeAccount
+	customer    *FacadeCustomer
 	transaction *Transaction
 }
 
-//methodd NewBranchManagerFacade
+// methodd NewBranchManagerFacade
 func NewBranchManagerFacade() *BranchManagerFacade {
-	return &BranchManagerFacade{&Account{}, &Customer{}, &Transaction{}}
+	return &BranchManagerFacade{&FacadeAccount{}, &FacadeCustomer{}, &Transaction{}}
 }
 
-//BranchManagerFacade class method createCustomerAccount
-func (facade *BranchManagerFacade) createCustomerAccount(customerName string, accountType string) (*Customer, *Account) {
+// BranchManagerFacade class method createCustomerAccount
+func (facade *BranchManagerFacade) createCustomerAccount(customerName string, accountType string) (*FacadeCustomer, *FacadeAccount) {
 	var customer = facade.customer.create(customerName)
 	var account = facade.account.create(accountType)
 	return customer, account
 }
 
-//BranchManagerFacade class method createTransaction
+// BranchManagerFacade class method createTransaction
 func (facade *BranchManagerFacade) createTransaction(srcAccountId string, destAccountId string, amount float32) *Transaction {
 
 	var transaction = facade.transaction.create(srcAccountId, destAccountId, amount)
@@ -89,11 +89,11 @@ func (facade *BranchManagerFacade) createTransaction(srcAccountId string, destAc
 
 }
 
-//main method
-func main() {
+// FacadeMain method
+func FacadeMain() {
 	var facade = NewBranchManagerFacade()
-	var customer *Customer
-	var account *Account
+	var customer *FacadeCustomer
+	var account *FacadeAccount
 	customer, account = facade.createCustomerAccount("Thomas Smith", "Savings")
 	fmt.Println(customer.name)
 	fmt.Println(account.accountType)

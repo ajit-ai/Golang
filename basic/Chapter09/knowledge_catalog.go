@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -77,7 +77,7 @@ func (knowledgeGraph *KnowledgeGraph) PrintLinks() {
 }
 
 // main method
-func main() {
+func KnowledgeCatalogMain() {
 
 	var knowledgeGraph *KnowledgeGraph
 
@@ -113,4 +113,13 @@ func main() {
 	knowledgeGraph.AddLink(door, windowGlass)
 
 	knowledgeGraph.PrintLinks()
+}
+
+// main runs the demo entry points of this package
+func main() {
+	KnowledgeCatalogMain()
+	MapLayoutMain()
+	SocialGraphExampleMain()
+	SocialGraphMain()
+	SparseMatrixMain()
 }

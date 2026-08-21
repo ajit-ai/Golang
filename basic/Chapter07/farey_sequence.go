@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -30,7 +30,7 @@ func g(l fraction, r fraction, num int) {
 }
 
 // main method
-func main() {
+func FareySequenceMain() {
 	var num int
 	var l fraction
 	var r fraction

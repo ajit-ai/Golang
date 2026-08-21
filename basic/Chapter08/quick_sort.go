@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-//Quick Sorter method
+// Quick Sorter method
 func QuickSorter(elements []int, below int, upper int) {
 	if below < upper {
 		var part int
@@ -34,7 +34,7 @@ func divideParts(elements []int, below int, upper int) int {
 	return i
 }
 
-//swap method
+// swap method
 func swap(element1 *int, element2 *int) {
 	var val int
 	val = *element1
@@ -43,7 +43,7 @@ func swap(element1 *int, element2 *int) {
 }
 
 // main method
-func main() {
+func QuickSortMain() {
 	var num int
 
 	fmt.Print("Enter Number of Elements: ")

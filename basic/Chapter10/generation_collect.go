@@ -1,32 +1,36 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
+// GenerationCollect marks every object of the given old generation
+func GenerationCollect() {
 
-func GenerationCollect(){
+	currentGeneration := 3
 
+	objects := GetObjectsFromOldGeneration(currentGeneration)
 
-   var currentGeneration int
+	for _, o := range objects {
 
-   currentGeneration = 3
+		markedAlready := IfMarked(o)
+		if !markedAlready {
 
-   var objects *[]object
+			SetMarked(o)
 
-   objects = GetObjectsFromOldGeneration(3)
+		}
+	}
 
-   var object *object
+}
 
-   for _, object = range objects {
+// GenerationCollectMain demonstrates generational marking
+func GenerationCollectMain() {
 
-   var markedAlready bool
+	old := newObject(1, 3)
+	young := newObject(2, 1)
+	registerObject(old)
+	registerObject(young)
 
-   markedAlready = IfMarked(object)
-   if markedAlready {
+	GenerationCollect()
 
-        map[object] = true
-
-   }
-   }
-
-
+	println("old marked:", IfMarked(old))
+	println("young marked:", IfMarked(young))
 }

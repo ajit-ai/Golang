@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main() {
+func SwitchExMain() {
 
 	i := 2
 	fmt.Print("Write ", i, " as ")
@@ -46,4 +46,10 @@ func main() {
 	whatAmI(true)
 	whatAmI(1)
 	whatAmI("hey")
+}
+
+// main runs the demo entry points of this package
+func main() {
+	SwitchExMain()
+	SwitchUseMain()
 }

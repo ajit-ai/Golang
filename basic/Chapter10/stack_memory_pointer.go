@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -8,21 +8,21 @@ import (
 )
 
 // increment method
-func addOne(num *int) {
+func addOnePointer(num *int) {
 
 	*num++
-	fmt.Println("added to num", num, "Address of num", &num,"Value Points To",*num )
+	fmt.Println("added to num", num, "Address of num", &num, "Value Points To", *num)
 }
 
-// main method
-func main() {
+// StackMemoryPointerMain method
+func StackMemoryPointerMain() {
 
 	var number int
 	number = 17
 
 	fmt.Println("value of number", number, "Address of number", &number)
 
-	addOne(&number)
+	addOnePointer(&number)
 
 	fmt.Println("value of number after adding One", number, "Address of", &number)
 }

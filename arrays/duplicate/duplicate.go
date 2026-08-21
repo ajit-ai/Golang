@@ -104,7 +104,13 @@ func findDuplicatesthree(arr []int) []int {
 //4. Using a slice of booleans
 
 func findDuplicatesfour(arr []int) []int {
-	b := make([]bool, len(arr))
+	maxVal := 0
+	for _, num := range arr {
+		if num > maxVal {
+			maxVal = num
+		}
+	}
+	b := make([]bool, maxVal+1)
 	var duplicates []int
 	for _, num := range arr {
 		if b[num] {
@@ -148,9 +154,9 @@ func findDuplicatesseven(arr []int) []int {
 		return []int{}
 	}
 	if contains(arr[1:], arr[0]) {
-		return append(findDuplicates(arr[1:]), arr[0])
+		return append(findDuplicatesseven(arr[1:]), arr[0])
 	}
-	return findDuplicates(arr[1:])
+	return findDuplicatesseven(arr[1:])
 }
 
 func contains(arr []int, num int) bool {
@@ -206,7 +212,7 @@ func findDuplicatesten(arr []int) []int {
 	var wg sync.WaitGroup
 	ch := make(chan int)
 	var duplicates []int
-	wg.Add(1)
+	wg.Add(2)
 	go func() {
 		defer wg.Done()
 		seen := make(map[int]bool)
@@ -219,10 +225,10 @@ func findDuplicatesten(arr []int) []int {
 		close(ch)
 	}()
 	go func() {
+		defer wg.Done()
 		for num := range ch {
 			duplicates = append(duplicates, num)
 		}
-		wg.Done()
 	}()
 	wg.Wait()
 	return duplicates
@@ -240,6 +246,7 @@ func findDuplicateseleven(arr []int) []int {
 			duplicates = append(duplicates, num)
 		}
 		seen[num] = true
+		mu.Unlock()
 	}
 	return duplicates
 }

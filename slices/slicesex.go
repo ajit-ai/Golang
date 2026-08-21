@@ -5,7 +5,7 @@ import (
 	"slices"
 )
 
-func main() {
+func SlicesExMain() {
 
 	var s []string
 	fmt.Println("uninit:", s, s == nil, len(s) == 0)
@@ -55,4 +55,10 @@ func main() {
 		}
 	}
 	fmt.Println("2d: ", twoD)
+}
+
+// main runs the demo entry points of this package
+func main() {
+	SlicesExMain()
+	SlicesUseMain()
 }

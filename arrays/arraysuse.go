@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func ArraysUseMain() {
 	// 1. Declare an array of 5 ints
 	var a [5]int
 	fmt.Println("1:", a)

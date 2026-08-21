@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -9,98 +9,98 @@ import (
 
 // Name type
 type Name string
+
 // Social Graph class
-type SocialGraph struct {
+type ExampleSocialGraph struct {
 	GraphNodes map[Name]struct{}
-	Links map[Name]map[Name]struct{}
+	Links      map[Name]map[Name]struct{}
 }
 
-// NewSocialGraph method
-func NewSocialGraph() *SocialGraph {
-	return &SocialGraph{
+// NewExampleSocialGraph method
+func NewExampleSocialGraph() *ExampleSocialGraph {
+	return &ExampleSocialGraph{
 		GraphNodes: make(map[Name]struct{}),
-		Links: make(map[Name]map[Name]struct{}),
+		Links:      make(map[Name]map[Name]struct{}),
 	}
 }
 
 // AddEntity method
-func (socialGraph *SocialGraph) AddEntity(name Name) bool {
+func (ExampleSocialGraph *ExampleSocialGraph) AddEntity(name Name) bool {
 
 	var exists bool
-	if _, exists = socialGraph.GraphNodes[name]; exists {
+	if _, exists = ExampleSocialGraph.GraphNodes[name]; exists {
 		return true
 	}
-	socialGraph.GraphNodes[name] = struct{}{}
+	ExampleSocialGraph.GraphNodes[name] = struct{}{}
 	return true
 }
 
 // Add Link
-func (socialGraph *SocialGraph) AddLink(name1 Name, name2 Name) {
+func (ExampleSocialGraph *ExampleSocialGraph) AddLink(name1 Name, name2 Name) {
 	var exists bool
-	if _, exists = socialGraph.GraphNodes[name1]; !exists {
-		socialGraph.AddEntity(name1)
+	if _, exists = ExampleSocialGraph.GraphNodes[name1]; !exists {
+		ExampleSocialGraph.AddEntity(name1)
 	}
-	if _, exists = socialGraph.GraphNodes[name2]; !exists {
-		socialGraph.AddEntity(name2)
+	if _, exists = ExampleSocialGraph.GraphNodes[name2]; !exists {
+		ExampleSocialGraph.AddEntity(name2)
 	}
 
-	if _, exists = socialGraph.Links[name1]; !exists {
-		socialGraph.Links[name1] = make(map[Name]struct{})
+	if _, exists = ExampleSocialGraph.Links[name1]; !exists {
+		ExampleSocialGraph.Links[name1] = make(map[Name]struct{})
 	}
-	socialGraph.Links[name1][name2] = struct{}{}
+	ExampleSocialGraph.Links[name1][name2] = struct{}{}
 
 }
 
-func (socialGraph *SocialGraph) PrintLinks() {
+func (ExampleSocialGraph *ExampleSocialGraph) PrintLinks() {
 	var root Name
 	root = Name("Root")
 
-	fmt.Printf("Printing all links adjacent to %d\n", root)
+	fmt.Printf("Printing all links adjacent to %s\n", root)
 
 	var node Name
-	for node = range socialGraph.Links[root] {
-		fmt.Printf("Link: %d -> %d\n", root, node)
+	for node = range ExampleSocialGraph.Links[root] {
+		fmt.Printf("Link: %s -> %s\n", root, node)
 	}
 
-  var m map[Name]struct{}
+	var m map[Name]struct{}
 	fmt.Println("Printing all links.")
-	for root, m = range socialGraph.Links {
+	for root, m = range ExampleSocialGraph.Links {
 		var vertex Name
 		for vertex = range m {
-			fmt.Printf("Link: %d -> %d\n",root, vertex)
+			fmt.Printf("Link: %s -> %s\n", root, vertex)
 		}
 	}
 }
 
 // main method
-func main() {
+func SocialGraphExampleMain() {
 
-	var socialGraph *SocialGraph
+	var ExampleSocialGraph *ExampleSocialGraph
 
-	 socialGraph = NewSocialGraph()
+	ExampleSocialGraph = NewExampleSocialGraph()
 
-	 var root Name = Name("Root")
-	 var john Name = Name("John Smith")
-   var per Name = Name("Per Jambeck")
-	 var cynthia Name = Name("Cynthia Gibas")
+	var root Name = Name("Root")
+	var john Name = Name("John Smith")
+	var per Name = Name("Per Jambeck")
+	var cynthia Name = Name("Cynthia Gibas")
 
+	ExampleSocialGraph.AddEntity(root)
+	ExampleSocialGraph.AddEntity(john)
+	ExampleSocialGraph.AddEntity(per)
+	ExampleSocialGraph.AddEntity(cynthia)
 
-	 socialGraph.AddEntity(root)
-	 socialGraph.AddEntity(john)
-	 socialGraph.AddEntity(per)
-	 socialGraph.AddEntity(cynthia)
+	ExampleSocialGraph.AddLink(root, john)
+	ExampleSocialGraph.AddLink(root, per)
+	ExampleSocialGraph.AddLink(root, cynthia)
 
-	 socialGraph.AddLink(root, john)
-	 socialGraph.AddLink(root,per)
-	 socialGraph.AddLink(root,cynthia)
+	var mayo Name = Name("Mayo Smith")
+	var lorrie Name = Name("Lorrie Jambeck")
+	var ellie Name = Name("Ellie Vlocksen")
 
-   var mayo Name = Name("Mayo Smith")
-	 var lorrie Name = Name("Lorrie Jambeck")
-	 var ellie Name = Name("Ellie Vlocksen")
+	ExampleSocialGraph.AddLink(john, mayo)
+	ExampleSocialGraph.AddLink(john, lorrie)
+	ExampleSocialGraph.AddLink(per, ellie)
 
-	 socialGraph.AddLink(john, mayo)
-	 socialGraph.AddLink(john,lorrie)
-	 socialGraph.AddLink(per,ellie)
-
-	 socialGraph.PrintLinks()
+	ExampleSocialGraph.PrintLinks()
 }

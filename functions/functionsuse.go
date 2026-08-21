@@ -638,7 +638,7 @@ func mainLogic() {
 	fmt.Println("This is the main logic function.")
 }
 
-func main() {
+func FunctionsUseMain() {
 	fmt.Println("1+2 =", add(1, 2))
 	fmt.Println("3-1 =", subtract(3, 1))
 	fmt.Println("2*3 =", multiply(2, 3))

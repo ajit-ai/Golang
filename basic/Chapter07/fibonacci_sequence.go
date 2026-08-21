@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -33,7 +33,7 @@ func FibonacciNumber(n int) int {
 }
 
 // main method
-func main() {
+func FibonacciSequenceMain() {
 	var i int
 	for i = 0; i <= 9; i++ {
 		fmt.Print(strconv.Itoa(Series(i)) + " ")

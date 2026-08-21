@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-//bubble Sorter method
+// bubble Sorter method
 func bubbleSorter(integers [11]int) {
 
 	var num int
@@ -31,7 +31,7 @@ func bubbleSorter(integers [11]int) {
 }
 
 // main method
-func main() {
+func BubbleSortMain() {
 	var integers [11]int = [11]int{31, 13, 12, 4, 18, 16, 7, 2, 3, 0, 10}
 	fmt.Println("Bubble Sorter")
 	bubbleSorter(integers)

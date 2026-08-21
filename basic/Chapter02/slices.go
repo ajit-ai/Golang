@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-//twiceValue method given slice of int type
+// twiceValue method given slice of int type
 func twiceValue(slice []int) {
 
 	var i int
@@ -22,7 +22,7 @@ func twiceValue(slice []int) {
 }
 
 // main method
-func main() {
+func SlicesMain() {
 
 	var slice = []int{1, 3, 5, 6}
 	twiceValue(slice)

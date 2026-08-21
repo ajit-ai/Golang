@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -13,13 +13,13 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-type Customer struct {
+type CrmCustomer struct {
 	CustomerId   int
 	CustomerName string
 	SSN          string
 }
 
-func GetConnection() (database *sql.DB) {
+func GetCrmConnection() (database *sql.DB) {
 	databaseDriver := "mysql"
 	databaseUser := "newuser"
 	databasePass := "newuser"
@@ -31,19 +31,18 @@ func GetConnection() (database *sql.DB) {
 	return database
 }
 
-func GetCustomerById(customerId int) Customer {
+func GetCrmCustomerById(customerId int) CrmCustomer {
 	var database *sql.DB
-	database = GetConnection()
+	database = GetCrmConnection()
 
 	var error error
 	var rows *sql.Rows
-	rows, error = database.Query("SELECT * FROM Customer WHERE CustomerId=?", customerId)
+	rows, error = database.Query("SELECT * FROM CrmCustomer WHERE CustomerId=?", customerId)
 	if error != nil {
 		panic(error.Error())
 	}
 	//fmt.Println(rows)
-	var customer Customer
-	customer = Customer{}
+	var customer CrmCustomer
 
 	for rows.Next() {
 		var customerId int
@@ -61,21 +60,20 @@ func GetCustomerById(customerId int) Customer {
 	return customer
 }
 
-func GetCustomers() []Customer {
+func GetCrmCustomers() []CrmCustomer {
 	var database *sql.DB
-	database = GetConnection()
+	database = GetCrmConnection()
 
 	var error error
 	var rows *sql.Rows
-	rows, error = database.Query("SELECT * FROM Customer ORDER BY Customerid DESC")
+	rows, error = database.Query("SELECT * FROM CrmCustomer ORDER BY Customerid DESC")
 	if error != nil {
 		panic(error.Error())
 	}
-	var customer Customer
-	customer = Customer{}
+	var customer CrmCustomer
 
-	var customers []Customer
-	customers = []Customer{}
+	var customers []CrmCustomer
+	customers = []CrmCustomer{}
 	for rows.Next() {
 		var customerId int
 		var customerName string
@@ -95,84 +93,84 @@ func GetCustomers() []Customer {
 	return customers
 }
 
-func InsertCustomer(customer Customer) {
+func InsertCrmCustomer(customer CrmCustomer) {
 	var database *sql.DB
-	database = GetConnection()
+	database = GetCrmConnection()
 
 	var error error
 	var insert *sql.Stmt
-	insert, error = database.Prepare("INSERT INTO CUSTOMER(CustomerName,SSN) VALUES(?,?)")
+	insert, error = database.Prepare("INSERT INTO CrmCustomer(CustomerName,SSN) VALUES(?,?)")
 	if error != nil {
 		panic(error.Error())
 	}
 	insert.Exec(customer.CustomerName, customer.SSN)
-	//log.Println("INSERT: Customer Name: " + customer.name + " | SSN: " + customer.ssn)
+	//log.Println("INSERT: CrmCustomer Name: " + CrmCustomer.name + " | SSN: " + CrmCustomer.ssn)
 
 	defer database.Close()
 
-	//return Customer{}
+	//return CrmCustomer{}
 }
 
-func UpdateCustomer(customer Customer) {
+func UpdateCrmCustomer(customer CrmCustomer) {
 	var database *sql.DB
-	database = GetConnection()
+	database = GetCrmConnection()
 
 	var error error
 	var update *sql.Stmt
-	update, error = database.Prepare("UPDATE CUSTOMER SET CustomerName=?, SSN=? WHERE CustomerId=?")
+	update, error = database.Prepare("UPDATE CrmCustomer SET CustomerName=?, SSN=? WHERE CustomerId=?")
 	if error != nil {
 		panic(error.Error())
 	}
 	update.Exec(customer.CustomerName, customer.SSN, customer.CustomerId)
-	//log.Println("INSERT: Customer Name: " + customer.name + " | SSN: " + customer.ssn)
+	//log.Println("INSERT: CrmCustomer Name: " + CrmCustomer.name + " | SSN: " + CrmCustomer.ssn)
 
 	defer database.Close()
 
-	//return Customer{}
+	//return CrmCustomer{}
 }
-func DeleteCustomer(customer Customer) {
+func DeleteCrmCustomer(customer CrmCustomer) {
 	var database *sql.DB
-	database = GetConnection()
+	database = GetCrmConnection()
 
 	var error error
 	var delete *sql.Stmt
-	delete, error = database.Prepare("DELETE FROM Customer WHERE Customerid=?")
+	delete, error = database.Prepare("DELETE FROM CrmCustomer WHERE Customerid=?")
 	if error != nil {
 		panic(error.Error())
 	}
 	delete.Exec(customer.CustomerId)
-	//log.Println("INSERT: Customer Name: " + customer.name + " | SSN: " + customer.ssn)
+	//log.Println("INSERT: CrmCustomer Name: " + CrmCustomer.name + " | SSN: " + CrmCustomer.ssn)
 
 	defer database.Close()
 
-	//return Customer{}
+	//return CrmCustomer{}
 }
 
 /*func main() {
 
-     var customers []Customer
-    customers = GetCustomers()
+     var customers []CrmCustomer
+    customers = GetCrmCustomers()
     fmt.Println(customers)
 
-  //  var customer Customer
-//    customer.CustomerName = "Thomas Smith"
-  //  customer.SSN = "2323343"
+  //  var CrmCustomer CrmCustomer
+//    CrmCustomer.CustomerName = "Thomas Smith"
+  //  CrmCustomer.SSN = "2323343"
 
-  //  InsertCustomer(customer)
+  //  InsertCrmCustomer(CrmCustomer)
 
-  //var customer Customer
-  //  customer.CustomerName = "George Thompson"
-  //  customer.SSN = "23233432"
-  //  customer.CustomerId = 2
-  //  UpdateCustomer(customer)
+  //var CrmCustomer CrmCustomer
+  //  CrmCustomer.CustomerName = "George Thompson"
+  //  CrmCustomer.SSN = "23233432"
+  //  CrmCustomer.CustomerId = 2
+  //  UpdateCrmCustomer(CrmCustomer)
 
-var customer Customer
-  //customer.CustomerName = "George Thompson"
-  //customer.SSN = "23233432"
+var CrmCustomer CrmCustomer
+  //CrmCustomer.CustomerName = "George Thompson"
+  //CrmCustomer.SSN = "23233432"
  customer.CustomerId = 2
 
-    deleteCustomer(customer)
-    customers = GetCustomers()
+    DeleteCrmCustomer(CrmCustomer)
+    customers = GetCrmCustomers()
     fmt.Println(customers)
 
 

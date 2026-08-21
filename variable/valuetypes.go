@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func ValueTypesMain() {
 	// Variable declaration with initial value
 	var a = "initial"
 	fmt.Println(a)

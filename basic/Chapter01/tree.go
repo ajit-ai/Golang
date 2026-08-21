@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -15,7 +15,7 @@ type Tree struct {
 }
 
 // Tree insert method for inserting at m position
-func (tree *Tree) insert(m int) {
+func (tree *Tree) Insert(m int) {
 	if tree != nil {
 
 		if tree.LeftNode == nil {
@@ -27,10 +27,10 @@ func (tree *Tree) insert(m int) {
 
 				if tree.LeftNode != nil {
 
-					tree.LeftNode.insert(m)
+					tree.LeftNode.Insert(m)
 				} else {
 
-					tree.RightNode.insert(m)
+					tree.RightNode.Insert(m)
 				}
 
 			}
@@ -42,29 +42,40 @@ func (tree *Tree) insert(m int) {
 	}
 }
 
-//print method for printing a Tree
-func print(tree *Tree) {
+// InorderValues collects the values of the tree in inorder traversal
+func InorderValues(tree *Tree) []int {
+	if tree == nil {
+		return nil
+	}
+
+	left := InorderValues(tree.LeftNode)
+	values := append(left, tree.Value)
+	return append(values, InorderValues(tree.RightNode)...)
+}
+
+// Print method for printing a Tree
+func Print(tree *Tree) {
 	if tree != nil {
 
 		fmt.Println(" Value", tree.Value)
 		fmt.Printf("Tree Node Left")
-		print(tree.LeftNode)
+		Print(tree.LeftNode)
 		fmt.Printf("Tree Node Right")
-		print(tree.RightNode)
+		Print(tree.RightNode)
 	} else {
 		fmt.Printf("Nil\n")
 	}
 }
 
-// main method
-func main() {
+// TreeMain method
+func TreeMain() {
 	var tree *Tree = &Tree{nil, 1, nil}
-	print(tree)
-	tree.insert(3)
-	print(tree)
-	tree.insert(5)
-	print(tree)
-	tree.LeftNode.insert(7)
-	print(tree)
+	Print(tree)
+	tree.Insert(3)
+	Print(tree)
+	tree.Insert(5)
+	Print(tree)
+	tree.LeftNode.Insert(7)
+	Print(tree)
 
 }

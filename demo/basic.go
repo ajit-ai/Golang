@@ -1048,7 +1048,15 @@ func isNumberPalindrome(x int) bool {
 
 // 62. Find all prime numbers up to n (Sieve of Eratosthenes)
 func sieveOfEratosthenes(arr []int) []int {
-	n := 100
+	if len(arr) == 0 {
+		return []int{}
+	}
+	n := arr[0]
+	for _, v := range arr {
+		if v > n {
+			n = v
+		}
+	}
 	sieve := make([]bool, n+1)
 	for i := 2; i <= n; i++ {
 		sieve[i] = true
@@ -1061,9 +1069,9 @@ func sieveOfEratosthenes(arr []int) []int {
 		}
 	}
 	primes := []int{}
-	for i := 2; i <= n; i++ {
-		if sieve[i] {
-			primes = append(primes, i)
+	for _, v := range arr {
+		if v >= 2 && sieve[v] {
+			primes = append(primes, v)
 		}
 	}
 	return primes
@@ -1081,6 +1089,7 @@ func quickSort(arr []int) []int {
 		if v <= pivot {
 			left = append(left, v)
 		} else {
+			right = append(right, v)
 		}
 	}
 	return append(append(quickSort(left), pivot), quickSort(right)...)
@@ -1276,7 +1285,7 @@ func numberToBinary(n int) string {
 	}
 	binary := ""
 	for n > 0 {
-		binary = string(n%2) + binary
+		binary = strconv.Itoa(n%2) + binary
 		n /= 2
 	}
 	return binary
@@ -2158,7 +2167,7 @@ func min(a, b int) int {
 	return b
 }
 
-func main() {
+func BasicMain() {
 	// Testing some of the function as required by program as upto user to test others.
 	helloWorld()
 	fmt.Println("Sum:", sum(3, 4))
@@ -2170,4 +2179,11 @@ func main() {
 	fmt.Println("Fibonacci:", fibonacci(6))
 	fmt.Println("Is prime:", isPrime(17))
 	fmt.Println("Count vowels:", countVowels("hello"))
+}
+
+// main runs the demo entry points of this package
+func main() {
+	BasicMain()
+	DemoMain()
+	HelloMain()
 }

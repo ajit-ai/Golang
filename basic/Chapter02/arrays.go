@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -8,7 +8,7 @@ import (
 )
 
 // main method
-func main() {
+func ArraysMain() {
 
 	var arr = [5]int{1, 2, 4, 5, 6}
 

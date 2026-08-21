@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,14 +7,21 @@ import (
 	"fmt"
 )
 
-// main method
-func main() {
+func ScaledArray() [10]int {
 	var m [10]int
-	var k int
 
-	for k = 0; k < 10; k++ {
+	for k := 0; k < 10; k++ {
 		m[k] = k * 200
+	}
 
+	return m
+}
+
+// LinearComplexityMain method
+func LinearComplexityMain() {
+	m := ScaledArray()
+
+	for k := 0; k < 10; k++ {
 		fmt.Printf("Element[%d] = %d\n", k, m[k])
 	}
 }

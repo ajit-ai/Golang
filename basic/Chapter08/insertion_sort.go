@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -22,7 +22,7 @@ func randomSequence(num int) []int {
 	return sequence
 }
 
-//InsertionSorter method
+// InsertionSorter method
 func InsertionSorter(elements []int) {
 	var n = len(elements)
 	var i int
@@ -39,12 +39,12 @@ func InsertionSorter(elements []int) {
 	}
 }
 
-//main method
-func main() {
+// main method
+func InsertionSortMain() {
 
 	var sequence []int
 	sequence = randomSequence(24)
-	fmt.Println("\n^^^^^^ Before Sorting ^^^ \n\n", sequence)
+	fmt.Println("\n^^^^^^ Before Sorting ^^^ ", sequence)
 	InsertionSorter(sequence)
-	fmt.Println("\n--- After Sorting ---\n\n", sequence, "\n")
+	fmt.Println("\n--- After Sorting ---", sequence)
 }

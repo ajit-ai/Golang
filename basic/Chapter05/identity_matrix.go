@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -22,6 +22,6 @@ func Identity(order int) [][]float64 {
 }
 
 // main method
-func main() {
+func IdentityMatrixMain() {
 	fmt.Println(Identity(4))
 }

@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -17,8 +17,8 @@ const (
 	messageTicketEnd
 )
 
-//Queue class
-type Queue struct {
+// SyncQueue class
+type SyncQueue struct {
 	waitPass    int
 	waitTicket  int
 	playPass    bool
@@ -28,35 +28,35 @@ type Queue struct {
 	message     chan int
 }
 
-// New method initialises queue
-func (queue *Queue) New() {
+// New method initialises SyncQueue
+func (SyncQueue *SyncQueue) New() {
 
-	queue.message = make(chan int)
-	queue.queuePass = make(chan int)
-	queue.queueTicket = make(chan int)
+	SyncQueue.message = make(chan int)
+	SyncQueue.queuePass = make(chan int)
+	SyncQueue.queueTicket = make(chan int)
 
 	go func() {
 		var message int
 		for {
 			select {
-			case message = <-queue.message:
+			case message = <-SyncQueue.message:
 				switch message {
 				case messagePassStart:
-					queue.waitPass++
+					SyncQueue.waitPass++
 				case messagePassEnd:
-					queue.playPass = false
+					SyncQueue.playPass = false
 				case messageTicketStart:
-					queue.waitTicket++
+					SyncQueue.waitTicket++
 				case messageTicketEnd:
-					queue.playTicket = false
+					SyncQueue.playTicket = false
 				}
-				if queue.waitPass > 0 && queue.waitTicket > 0 && !queue.playPass && !queue.playTicket {
-					queue.playPass = true
-					queue.playTicket = true
-					queue.waitTicket--
-					queue.waitPass--
-					queue.queuePass <- 1
-					queue.queueTicket <- 1
+				if SyncQueue.waitPass > 0 && SyncQueue.waitTicket > 0 && !SyncQueue.playPass && !SyncQueue.playTicket {
+					SyncQueue.playPass = true
+					SyncQueue.playTicket = true
+					SyncQueue.waitTicket--
+					SyncQueue.waitPass--
+					SyncQueue.queuePass <- 1
+					SyncQueue.queueTicket <- 1
 				}
 			}
 		}
@@ -64,68 +64,68 @@ func (queue *Queue) New() {
 }
 
 // StartTicketIssue starts the ticket issue
-func (queue *Queue) StartTicketIssue() {
-	queue.message <- messageTicketStart
-	<-queue.queueTicket
+func (SyncQueue *SyncQueue) StartTicketIssue() {
+	SyncQueue.message <- messageTicketStart
+	<-SyncQueue.queueTicket
 }
 
 // EndTicketIssue ends the ticket issue
-func (queue *Queue) EndTicketIssue() {
-	queue.message <- messageTicketEnd
+func (SyncQueue *SyncQueue) EndTicketIssue() {
+	SyncQueue.message <- messageTicketEnd
 }
 
-//StartPass ends the Pass queue
-func (queue *Queue) StartPass() {
-	queue.message <- messagePassStart
-	<-queue.queuePass
+// StartPass ends the Pass SyncQueue
+func (SyncQueue *SyncQueue) StartPass() {
+	SyncQueue.message <- messagePassStart
+	<-SyncQueue.queuePass
 }
 
-//EndPass ends the Pass queue
-func (queue *Queue) EndPass() {
-	queue.message <- messagePassEnd
+// EndPass ends the Pass SyncQueue
+func (SyncQueue *SyncQueue) EndPass() {
+	SyncQueue.message <- messagePassEnd
 }
 
-//ticketIssue starts and ends the ticket issue
-func ticketIssue(queue *Queue) {
+// ticketIssue starts and ends the ticket issue
+func ticketIssue(SyncQueue *SyncQueue) {
 	for {
 		// Sleep up to 10 seconds.
 		time.Sleep(time.Duration(rand.Intn(10000)) * time.Millisecond)
-		queue.StartTicketIssue()
+		SyncQueue.StartTicketIssue()
 		fmt.Println("Ticket Issue starts")
 		// Sleep up to 2 seconds.
 		time.Sleep(time.Duration(rand.Intn(2000)) * time.Millisecond)
 		fmt.Println("Ticket Issue ends")
-		queue.EndTicketIssue()
+		SyncQueue.EndTicketIssue()
 	}
 }
 
-//passenger method starts and ends the pass queue
-func passenger(queue *Queue) {
+// passenger method starts and ends the pass SyncQueue
+func passenger(SyncQueue *SyncQueue) {
 	for {
 		// Sleep up to 10 seconds.
 		time.Sleep(time.Duration(rand.Intn(10000)) * time.Millisecond)
-		queue.StartPass()
+		SyncQueue.StartPass()
 		fmt.Println("  Passenger starts")
 		// Sleep up to 2 seconds.
 		time.Sleep(time.Duration(rand.Intn(2000)) * time.Millisecond)
 		fmt.Println(" Passenger ends")
 
-		queue.EndPass()
+		SyncQueue.EndPass()
 	}
 }
 
 // main method
-func main() {
-	var queue *Queue = &Queue{}
-	queue.New()
-	fmt.Println(queue)
+func SyncQueueMain() {
+	var SyncQueue *SyncQueue = &SyncQueue{}
+	SyncQueue.New()
+	fmt.Println(SyncQueue)
 	var i int
 	for i = 0; i < 10; i++ {
-		go passenger(queue)
+		go passenger(SyncQueue)
 	}
 	var j int
 	for j = 0; j < 5; j++ {
-		go ticketIssue(queue)
+		go ticketIssue(SyncQueue)
 	}
 	select {}
 }

@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,15 +7,15 @@ import (
 	"fmt"
 )
 
-//gets the powerseries of integer a and returns tuple of square of a
+// gets the powerseries of integer a and returns tuple of square of a
 // and cube of a
-func powerSeries(a int) (int, int) {
+func PowerSeries(a int) (int, int) {
 
 	return a * a, a * a * a
 
 }
 
-func powerSeriesN(a int) (square int, cube int) {
+func PowerSeriesN(a int) (square int, cube int) {
 
 	square = a * a
 
@@ -25,7 +25,7 @@ func powerSeriesN(a int) (square int, cube int) {
 
 }
 
-func powerSeriesE(a int) (int, int, error) {
+func PowerSeriesE(a int) (int, int, error) {
 
 	var square int = a * a
 
@@ -35,16 +35,16 @@ func powerSeriesE(a int) (int, int, error) {
 
 }
 
-// main method
-func main() {
+// TuplesMain method
+func TuplesMain() {
 
 	var square int
 	var cube int
-	square, cube = powerSeries(3)
+	square, cube = PowerSeries(3)
 
 	fmt.Println("Square ", square, "Cube", cube)
 
-	fmt.Println(powerSeriesN(4))
+	fmt.Println(PowerSeriesN(4))
 
-	fmt.Println(powerSeriesE(5))
+	fmt.Println(PowerSeriesE(5))
 }

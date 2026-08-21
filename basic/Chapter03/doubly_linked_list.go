@@ -1,5 +1,5 @@
-//main package has examples shown
-// in Hands-On Data Structures and algorithms with Go book
+// main package has examples shown
+// in Hands-On Data Structures and algorithms book
 package main
 
 // importing fmt package
@@ -7,111 +7,109 @@ import (
 	"fmt"
 )
 
-// Node class
-type Node struct {
+// DoublyNode class
+type DoublyNode struct {
 	property     int
-	nextNode     *Node
-	previousNode *Node
+	nextNode     *DoublyNode
+	previousNode *DoublyNode
 }
 
-// LinkedList class
-type LinkedList struct {
-	headNode *Node
+// DoublyLinkedList class
+type DoublyLinkedList struct {
+	headNode *DoublyNode
 }
 
-//AddToHead method of LinkedList
-func (linkedList *LinkedList) AddToHead(property int) {
-	var node = &Node{}
-	node.property = property
-	node.nextNode = nil
-	if linkedList.headNode != nil {
-		//fmt.Println(node.property)
-		node.nextNode = linkedList.headNode
-		linkedList.headNode.previousNode = node
+// AddToHead method of DoublyLinkedList
+func (DoublyLinkedList *DoublyLinkedList) AddToHead(property int) {
+	var dnode = &DoublyNode{}
+	dnode.property = property
+	dnode.nextNode = nil
+	if DoublyLinkedList.headNode != nil {
+		dnode.nextNode = DoublyLinkedList.headNode
+		DoublyLinkedList.headNode.previousNode = dnode
 	}
 
-	linkedList.headNode = node
+	DoublyLinkedList.headNode = dnode
 
 }
 
-//NodeWithValue method of LinkedList
-func (linkedList *LinkedList) NodeWithValue(property int) *Node {
-	var node *Node
-	var nodeWith *Node
-	for node = linkedList.headNode; node != nil; node = node.nextNode {
-		if node.property == property {
-			nodeWith = node
+// NodeWithValue method of DoublyLinkedList
+func (DoublyLinkedList *DoublyLinkedList) NodeWithValue(property int) *DoublyNode {
+	var dnode *DoublyNode
+	var nodeWith *DoublyNode
+	for dnode = DoublyLinkedList.headNode; dnode != nil; dnode = dnode.nextNode {
+		if dnode.property == property {
+			nodeWith = dnode
 			break
 		}
 	}
 	return nodeWith
 }
 
-//AddAfter method of LinkedList
-func (linkedList *LinkedList) AddAfter(nodeProperty int, property int) {
-	var node = &Node{}
-	node.property = property
-	node.nextNode = nil
+// AddAfter method of DoublyLinkedList
+func (DoublyLinkedList *DoublyLinkedList) AddAfter(nodeProperty int, property int) {
+	var dnode = &DoublyNode{}
+	dnode.property = property
+	dnode.nextNode = nil
 
-	var nodeWith *Node
+	var nodeWith *DoublyNode
 
-	nodeWith = linkedList.NodeWithValue(nodeProperty)
+	nodeWith = DoublyLinkedList.NodeWithValue(nodeProperty)
 	if nodeWith != nil {
-		//fmt.Println(node.property)
-		node.nextNode = nodeWith.nextNode
-		node.previousNode = nodeWith
-		nodeWith.nextNode = node
+		dnode.nextNode = nodeWith.nextNode
+		dnode.previousNode = nodeWith
+		nodeWith.nextNode = dnode
 	}
 
 }
 
-//LastNode method of LinkedList
-func (linkedList *LinkedList) LastNode() *Node {
-	var node *Node
-	var lastNode *Node
-	for node = linkedList.headNode; node != nil; node = node.nextNode {
-		if node.nextNode == nil {
-			lastNode = node
+// LastNode method of DoublyLinkedList
+func (DoublyLinkedList *DoublyLinkedList) LastNode() *DoublyNode {
+	var dnode *DoublyNode
+	var lastNode *DoublyNode
+	for dnode = DoublyLinkedList.headNode; dnode != nil; dnode = dnode.nextNode {
+		if dnode.nextNode == nil {
+			lastNode = dnode
 		}
 	}
 	return lastNode
 }
 
-//AddToEnd method of LinkedList
-func (linkedList *LinkedList) AddToEnd(property int) {
-	var node = &Node{}
-	node.property = property
-	node.nextNode = nil
+// AddToEnd method of DoublyLinkedList
+func (DoublyLinkedList *DoublyLinkedList) AddToEnd(property int) {
+	var dnode = &DoublyNode{}
+	dnode.property = property
+	dnode.nextNode = nil
 
-	var lastNode *Node
+	var lastNode *DoublyNode
 
-	lastNode = linkedList.LastNode()
+	lastNode = DoublyLinkedList.LastNode()
 
 	if lastNode != nil {
 
-		lastNode.nextNode = node
-		node.previousNode = lastNode
+		lastNode.nextNode = dnode
+		dnode.previousNode = lastNode
 	}
 }
 
-//IterateList method of LinkedList
-func (linkedList *LinkedList) IterateList() {
+// IterateList method of DoublyLinkedList
+func (DoublyLinkedList *DoublyLinkedList) IterateList() {
 
-	var node *Node
-	for node = linkedList.headNode; node != nil; node = node.nextNode {
+	var dnode *DoublyNode
+	for dnode = DoublyLinkedList.headNode; dnode != nil; dnode = dnode.nextNode {
 
-		fmt.Println(node.property)
+		fmt.Println(dnode.property)
 	}
 }
 
-//NodeBetweenValues method of LinkedList
-func (linkedList *LinkedList) NodeBetweenValues(firstProperty int, secondProperty int) *Node {
-	var node *Node
-	var nodeWith *Node
-	for node = linkedList.headNode; node != nil; node = node.nextNode {
-		if node.previousNode != nil && node.nextNode != nil {
-			if node.previousNode.property == firstProperty && node.nextNode.property == secondProperty {
-				nodeWith = node
+// NodeBetweenValues method of DoublyLinkedList
+func (DoublyLinkedList *DoublyLinkedList) NodeBetweenValues(firstProperty int, secondProperty int) *DoublyNode {
+	var dnode *DoublyNode
+	var nodeWith *DoublyNode
+	for dnode = DoublyLinkedList.headNode; dnode != nil; dnode = dnode.nextNode {
+		if dnode.previousNode != nil && dnode.nextNode != nil {
+			if dnode.previousNode.property == firstProperty && dnode.nextNode.property == secondProperty {
+				nodeWith = dnode
 				break
 			}
 		}
@@ -119,21 +117,30 @@ func (linkedList *LinkedList) NodeBetweenValues(firstProperty int, secondPropert
 	return nodeWith
 }
 
-// main method
+// DoublyLinkedListMain method
+func DoublyLinkedListMain() {
+
+	var dlist DoublyLinkedList
+
+	dlist.AddToHead(1)
+	dlist.AddToHead(3)
+	dlist.AddToEnd(5)
+	dlist.AddAfter(1, 7)
+	fmt.Println(dlist.headNode.property)
+
+	var found *DoublyNode
+	found = dlist.NodeBetweenValues(1, 5)
+	fmt.Println(found.property)
+
+}
+
+// main runs the demo entry points of this package
+// (SyncQueueMain is excluded: it runs an endless concurrency demo)
 func main() {
-
-	var linkedList LinkedList
-
-	linkedList = LinkedList{}
-
-	linkedList.AddToHead(1)
-	linkedList.AddToHead(3)
-	linkedList.AddToEnd(5)
-	linkedList.AddAfter(1, 7)
-	fmt.Println(linkedList.headNode.property)
-
-	var node *Node
-	node = linkedList.NodeBetweenValues(1, 5)
-	fmt.Println(node.property)
-
+	DoublyLinkedListMain()
+	QueueMain()
+	SetMain()
+	SinglyLinkedListMain()
+	StackMain()
+	TuplesMain()
 }

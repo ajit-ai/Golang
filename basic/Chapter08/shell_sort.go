@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -40,7 +40,7 @@ func ShellSorter(elements []int) {
 	}
 }
 
-//power function
+// power function
 func power(exponent int, index int) int {
 	var power int
 	power = 1
@@ -55,7 +55,7 @@ func power(exponent int, index int) int {
 }
 
 // main method
-func main() {
+func ShellSortMain() {
 	var elements []int
 	elements = []int{34, 202, 13, 19, 6, 5, 1, 43, 506, 12, 20, 28, 17, 100, 25, 4, 5, 97, 1000, 27}
 	ShellSorter(elements)

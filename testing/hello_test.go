@@ -10,3 +10,9 @@ func TestHello(t *testing.T) {
 		t.Errorf("got %q want %q", got, want)
 	}
 }
+
+func TestHelloIsNotEmpty(t *testing.T) {
+	if Hello() == "" {
+		t.Error("Hello() returned an empty string")
+	}
+}

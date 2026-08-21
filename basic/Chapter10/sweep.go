@@ -1,31 +1,42 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
+// Sweep releases every unmarked object on the simulated heap
+func Sweep() {
 
-func Sweep(){
+	var doomed []*object
 
+	for _, o := range GetObjects() {
 
+		if !IfMarked(o) {
 
-   var objects *[]object
+			doomed = append(doomed, o)
 
-   objects = GetObjects()
+		}
+	}
 
-   var object *object
+	for _, o := range doomed {
 
-   for _, object = range objects {
+		Release(o)
 
-   var markedAlready bool
+	}
 
-   markedAlready = IfMarked(object)
-   if markedAlready {
+}
 
-        map[object] = true
+// SweepMain demonstrates sweeping unmarked objects
+func SweepMain() {
 
-   }
+	before := len(GetObjects())
 
-       Release(object)
-   }
+	kept := newObject(1, 0)
+	freed := newObject(2, 0)
+	registerObject(kept)
+	registerObject(freed)
 
+	SetMarked(kept)
 
+	Sweep()
+
+	println("only the unmarked object was released:", len(GetObjects()) == before+1)
 }

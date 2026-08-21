@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -30,7 +30,7 @@ func look_say(str string) (rstr string) {
 }
 
 // main method
-func main() {
+func LookSayMain() {
 	var str string
 	str = "1"
 	fmt.Println(str)

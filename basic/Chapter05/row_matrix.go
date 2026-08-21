@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -8,7 +8,7 @@ import (
 )
 
 // main method
-func main() {
+func RowMatrixMain() {
 
 	var matrix = [1][3]int{{1, 2, 3}}
 

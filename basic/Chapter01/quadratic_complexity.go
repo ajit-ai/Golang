@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,15 +7,22 @@ import (
 	"fmt"
 )
 
-// main method
-func main() {
+func TableRow(k int) []int {
+	row := make([]int, 10)
 
-	var k, l int
+	for l := 1; l <= 10; l++ {
+		row[l-1] = l * k
+	}
 
-	for k = 1; k <= 10; k++ {
+	return row
+}
+
+// QuadraticComplexityMain method
+func QuadraticComplexityMain() {
+
+	for k := 1; k <= 10; k++ {
 		fmt.Println(" Multiplication Table", k)
-		for l = 1; l <= 10; l++ {
-			var x int = l * k
+		for _, x := range TableRow(k) {
 			fmt.Println(x)
 		}
 

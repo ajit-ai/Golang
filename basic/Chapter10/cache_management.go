@@ -63,8 +63,8 @@ func (cache Cache) SetValue(cacheKey string, cacheValue string, timeToLive time.
 	}
 }
 
-// main method
-func main() {
+// CacheManagementMain method
+func CacheManagementMain() {
 
 	var cache *Cache
 	cache = NewCache()
@@ -83,5 +83,20 @@ func main() {
 	var country string
 	country = cache.GetObject("country")
 	fmt.Println(country)
+
+}
+
+// main method runs every Chapter10 example
+func main() {
+
+	CacheManagementMain()
+	GenerationCollectMain()
+	MarkMain()
+	ReferenceCountingMain()
+	StackGarbageCollectionMain()
+	StackMemoryAllocationMain()
+	StackMemoryPointerMain()
+	SweepMain()
+	WeightedReferenceMain()
 
 }

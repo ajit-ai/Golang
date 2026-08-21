@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func main() {
+func ElseIfUseMain() {
 	// 1. Basic number comparison
 	x := 10
 	if x < 0 {

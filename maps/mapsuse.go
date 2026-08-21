@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func main() {
+func MapsUseMain() {
 	// 1. Declare a map
 	var a map[string]int
 	fmt.Println("1:", a)

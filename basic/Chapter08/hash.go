@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -10,7 +10,7 @@ import (
 	"hash"
 )
 
-//CreateHash method
+// CreateHash method
 func CreateHash(byteStr []byte) []byte {
 	var hashVal hash.Hash
 	hashVal = sha1.New()
@@ -39,7 +39,7 @@ func xor(byteStr1 []byte, byteStr2 []byte) []byte {
 }
 
 // main method
-func main() {
+func HashMain() {
 
 	var bytes []byte
 	bytes = CreateHashMultiple([]byte("Check"), []byte("Hash"))

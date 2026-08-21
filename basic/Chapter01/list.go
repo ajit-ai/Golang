@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -8,12 +8,19 @@ import (
 	"fmt"
 )
 
-// main method
-func main() {
+func BuildIntList(values ...int) *list.List {
 	var intList list.List
-	intList.PushBack(11)
-	intList.PushBack(23)
-	intList.PushBack(34)
+
+	for _, value := range values {
+		intList.PushBack(value)
+	}
+
+	return &intList
+}
+
+// ListMain method
+func ListMain() {
+	var intList = BuildIntList(11, 23, 34)
 
 	for element := intList.Front(); element != nil; element = element.Next() {
 		fmt.Println(element.Value.(int))

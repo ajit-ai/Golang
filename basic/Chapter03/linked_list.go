@@ -1,5 +1,5 @@
-//main package has examples shown
-// in Hands-On Data Structures and algorithms with Go book
+// main package has examples shown
+// in Hands-On Data Structures and algorithms book
 package main
 
 // importing fmt package
@@ -7,113 +7,108 @@ import (
 	"fmt"
 )
 
-//Node class
-type Node struct {
+// SinglyNode class
+type SinglyNode struct {
 	property int
-	nextNode *Node
+	nextNode *SinglyNode
 }
 
-// LinkedList class
-type LinkedList struct {
-	headNode *Node
+// SinglyLinkedList class
+type SinglyLinkedList struct {
+	headNode *SinglyNode
 }
 
-//AddToHead method of LinkedList class
-func (linkedList *LinkedList) AddToHead(property int) {
-	var node = &Node{}
-	node.property = property
-	node.nextNode = nil
+// AddToHead method of SinglyLinkedList class
+func (slist *SinglyLinkedList) AddToHead(property int) {
+	var snode = &SinglyNode{}
+	snode.property = property
+	snode.nextNode = nil
 
-	if linkedList.headNode != nil {
-		//fmt.Println(node.property)
-		node.nextNode = linkedList.headNode
+	if slist.headNode != nil {
+		snode.nextNode = slist.headNode
 	}
 
-	linkedList.headNode = node
+	slist.headNode = snode
 
 }
 
-//NodeWithValue method returns Node given parameter property
-func (linkedList *LinkedList) NodeWithValue(property int) *Node {
-	var node *Node
-	var nodeWith *Node
-	for node = linkedList.headNode; node != nil; node = node.nextNode {
-		if node.property == property {
-			nodeWith = node
+// NodeWithValue method returns SinglyNode given parameter property
+func (slist *SinglyLinkedList) NodeWithValue(property int) *SinglyNode {
+	var snode *SinglyNode
+	var nodeWith *SinglyNode
+	for snode = slist.headNode; snode != nil; snode = snode.nextNode {
+		if snode.property == property {
+			nodeWith = snode
 			break
 		}
 	}
 	return nodeWith
 }
 
-//AddAfter method  adds a node with nodeProperty after node with property
-func (linkedList *LinkedList) AddAfter(nodeProperty int, property int) {
-	var node = &Node{}
-	node.property = property
-	node.nextNode = nil
+// AddAfter method  adds a SinglyNode with nodeProperty after SinglyNode with property
+func (slist *SinglyLinkedList) AddAfter(nodeProperty int, property int) {
+	var snode = &SinglyNode{}
+	snode.property = property
+	snode.nextNode = nil
 
-	var nodeWith *Node
+	var nodeWith *SinglyNode
 
-	nodeWith = linkedList.NodeWithValue(nodeProperty)
+	nodeWith = slist.NodeWithValue(nodeProperty)
 	if nodeWith != nil {
-		//fmt.Println(node.property)
-		node.nextNode = nodeWith.nextNode
-		nodeWith.nextNode = node
+		snode.nextNode = nodeWith.nextNode
+		nodeWith.nextNode = snode
 	}
 
 }
 
-//LastNode method returns the last Node
-func (linkedList *LinkedList) LastNode() *Node {
-	var node *Node
-	var lastNode *Node
-	for node = linkedList.headNode; node != nil; node = node.nextNode {
-		if node.nextNode == nil {
-			lastNode = node
+// LastNode method returns the last SinglyNode
+func (slist *SinglyLinkedList) LastNode() *SinglyNode {
+	var snode *SinglyNode
+	var lastNode *SinglyNode
+	for snode = slist.headNode; snode != nil; snode = snode.nextNode {
+		if snode.nextNode == nil {
+			lastNode = snode
 		}
 	}
 	return lastNode
 }
 
-//AddToEnd method adds the node with property to the end
-func (linkedList *LinkedList) AddToEnd(property int) {
-	var node = &Node{}
-	node.property = property
-	node.nextNode = nil
+// AddToEnd method adds the SinglyNode with property to the end
+func (slist *SinglyLinkedList) AddToEnd(property int) {
+	var snode = &SinglyNode{}
+	snode.property = property
+	snode.nextNode = nil
 
-	var lastNode *Node
+	var lastNode *SinglyNode
 
-	lastNode = linkedList.LastNode()
+	lastNode = slist.LastNode()
 
 	if lastNode != nil {
-		lastNode.nextNode = node
+		lastNode.nextNode = snode
 	}
 
 }
 
-//IterateList method iterates over LinkedList
-func (linkedList *LinkedList) IterateList() {
+// IterateList method iterates over SinglyLinkedList
+func (slist *SinglyLinkedList) IterateList() {
 
-	var node *Node
-	for node = linkedList.headNode; node != nil; node = node.nextNode {
-		fmt.Println(node.property)
+	var snode *SinglyNode
+	for snode = slist.headNode; snode != nil; snode = snode.nextNode {
+		fmt.Println(snode.property)
 
 	}
 }
 
-// main method
-func main() {
+// SinglyLinkedListMain method
+func SinglyLinkedListMain() {
 
-	var linkedList LinkedList
+	var slist SinglyLinkedList
 
-	linkedList = LinkedList{}
+	slist.AddToHead(1)
+	slist.AddToHead(3)
+	slist.AddToEnd(5)
+	slist.AddAfter(1, 7)
 
-	linkedList.AddToHead(1)
-	linkedList.AddToHead(3)
-	linkedList.AddToEnd(5)
-	linkedList.AddAfter(1, 7)
-	//fmt.Println(linkedList.headNode.property)
-
-	linkedList.IterateList()
+	slist.IterateList()
 
 }

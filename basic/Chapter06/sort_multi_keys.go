@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -44,8 +44,7 @@ func (multiSorter *multiSorter) Len() int {
 
 // Swap method
 func (multiSorter *multiSorter) Swap(i int, j int) {
-	multiSorter.Commits[i] = multiSorter.Commits[j]
-	multiSorter.Commits[j] = multiSorter.Commits[i]
+	multiSorter.Commits[i], multiSorter.Commits[j] = multiSorter.Commits[j], multiSorter.Commits[i]
 }
 
 // Less method
@@ -70,8 +69,8 @@ func (multiSorter *multiSorter) Less(i int, j int) bool {
 	return multiSorter.lessFunction[k](p, q)
 }
 
-//main method
-func main() {
+// main method
+func SortMultiKeysMain() {
 
 	var Commits = []Commit{
 		{"james", "Javascript", 110},

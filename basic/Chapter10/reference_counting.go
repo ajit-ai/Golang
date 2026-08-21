@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -9,14 +9,14 @@ import (
 	"sync/atomic"
 )
 
-//Reference Counter
+// Reference Counter
 type ReferenceCounter struct {
 	num     *uint32
 	pool    *sync.Pool
 	removed *uint32
 }
 
-//new Reference Counter method
+// new Reference Counter method
 func newReferenceCounter() ReferenceCounter {
 	return ReferenceCounter{
 		num:     new(uint32),
@@ -38,8 +38,8 @@ func (referenceCounter ReferenceCounter) Subtract() {
 	}
 }
 
-// main method
-func main() {
+// ReferenceCountingMain method
+func ReferenceCountingMain() {
 
 	var referenceCounter ReferenceCounter
 

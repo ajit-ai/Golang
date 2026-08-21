@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -55,12 +55,11 @@ func (socialGraph *SocialGraph) PrintLinks() {
 }
 
 // main method
-/*
-func main() {
+func SocialGraphMain() {
 
 	var socialGraph *SocialGraph
 
-	socialGraph = NewSocialGraph(4)
+	socialGraph = NewSocialGraph(5)
 
 	socialGraph.AddLink(0, 1, 1)
 	socialGraph.AddLink(0, 2, 1)
@@ -70,4 +69,3 @@ func main() {
 	socialGraph.PrintLinks()
 
 }
-*/

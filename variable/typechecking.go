@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func main() {
+func TypeCheckingMain() {
 	// 1. int
 	var a int = 10
 	fmt.Println(a)
@@ -90,4 +90,12 @@ func main() {
 	// 20. zero value for string
 	var t string
 	fmt.Println(t)
+}
+
+// main runs the demo entry points of this package
+func main() {
+	TypeCheckingMain()
+	UseVariableMain()
+	ValuesMain()
+	ValueTypesMain()
 }

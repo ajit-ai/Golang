@@ -4,14 +4,21 @@ import (
 	"fmt"
 )
 
-// main method
-func main() {
+func OffsetArray() [10]int {
 	var m [10]int
-	var k int
 
-	for k = 0; k < 10; k++ {
+	for k := 0; k < 10; k++ {
 		m[k] = k + 200
+	}
 
+	return m
+}
+
+// ComplexityMain method
+func ComplexityMain() {
+	m := OffsetArray()
+
+	for k := 0; k < 10; k++ {
 		fmt.Printf("Element[%d] = %d\n", k, m[k])
 	}
 }

@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func ElseIfExMain() {
 
 	if 7%2 == 0 {
 		fmt.Println("7 is even")
@@ -25,4 +25,10 @@ func main() {
 	} else {
 		fmt.Println(num, "has multiple digits")
 	}
+}
+
+// main runs the demo entry points of this package
+func main() {
+	ElseIfExMain()
+	ElseIfUseMain()
 }

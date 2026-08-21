@@ -5,7 +5,7 @@ import (
 )
 
 // IProces interface
-type IProcess interface {
+type AdapterIProcess interface {
 	process()
 }
 
@@ -30,11 +30,34 @@ func (adaptee Adaptee) convert() {
 	fmt.Println("Adaptee convert method")
 }
 
-// main method
-func main() {
+// AdapterMain method
+func AdapterMain() {
 
-	var processor IProcess = Adapter{}
+	var processor AdapterIProcess = Adapter{}
 
 	processor.process()
 
+}
+
+func main() {
+	AdapterMain()
+	BacktrackingMain()
+	BridgeMain()
+	BruteforceMain()
+	ComplexityMain()
+	CompositeMain()
+	CubicComplexityMain()
+	DecoratorMain()
+	DivideMain()
+	FacadeMain()
+	FlyweightMain()
+	HeapMain()
+	LinearComplexityMain()
+	ListMain()
+	NumOperationsMain()
+	PrivateClassMain()
+	QuadraticComplexityMain()
+	TreeMain()
+	TuplesMain()
+	VirtualProxyMain()
 }

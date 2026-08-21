@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func SwitchUseMain() {
 	// 1. Basic integer switch
 	x := 2
 	switch x {

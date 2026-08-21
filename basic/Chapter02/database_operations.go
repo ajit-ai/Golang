@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -118,7 +118,7 @@ func deleteCustomer(customer Customer) {
 	//return Customer{}
 }
 
-func main() {
+func DatabaseOperationsMain() {
 
 	var customers []Customer
 	customers = GetCustomers()

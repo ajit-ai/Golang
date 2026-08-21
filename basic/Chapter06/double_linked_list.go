@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -9,7 +9,7 @@ import (
 )
 
 // main method
-func main() {
+func DoubleLinkedListMain() {
 	var linkedList *list.List
 	linkedList = list.New()
 	var element *list.Element

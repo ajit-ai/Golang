@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -75,6 +75,7 @@ func determinant(matrix1 [2][2]int) float64 {
 
 	return det
 }
+
 // inverse method
 func inverse(matrix [2][2]int) [][]float64 {
 
@@ -82,18 +83,25 @@ func inverse(matrix [2][2]int) [][]float64 {
 
 	det = determinant(matrix)
 
-	var invmatrix float64
-	invmatrix[0][0] = matrix[1][1] / det
-	invmatrix[0][1] = -1 * matrix[0][1] / det
-	invmatrix[1][0] = -1 * matrix[1][0] / det
-	invmatrix[1][1] = matrix[0][0] / det
+	if det == 0 {
+		return nil
+	}
+
+	invmatrix := make([][]float64, 2)
+	for i := range invmatrix {
+		invmatrix[i] = make([]float64, 2)
+	}
+	invmatrix[0][0] = float64(matrix[1][1]) / det
+	invmatrix[0][1] = -1 * float64(matrix[0][1]) / det
+	invmatrix[1][0] = -1 * float64(matrix[1][0]) / det
+	invmatrix[1][1] = float64(matrix[0][0]) / det
 
 	return invmatrix
 
 }
 
-//main method
-func main() {
+// main method
+func TwodMatrixMain() {
 
 	var matrix1 = [2][2]int{
 		{4, 5},

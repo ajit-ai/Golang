@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func main() {
+func SlicesUseMain() {
 	// 1. Declare an empty slice
 	var a []int
 	fmt.Println("1:", a)

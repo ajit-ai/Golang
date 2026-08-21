@@ -5,7 +5,7 @@ import (
 	"maps"
 )
 
-func main() {
+func MapExMain() {
 
 	m := make(map[string]int)
 
@@ -38,4 +38,10 @@ func main() {
 	if maps.Equal(n, n2) {
 		fmt.Println("n == n2")
 	}
+}
+
+// main runs the demo entry points of this package
+func main() {
+	MapExMain()
+	MapsUseMain()
 }

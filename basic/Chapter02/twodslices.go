@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -8,7 +8,7 @@ import (
 )
 
 // main method
-func main() {
+func TwodSlicesMain() {
 
 	var rows int
 	var cols int

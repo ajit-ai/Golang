@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -99,7 +99,7 @@ func (dict *Dictionary) GetValues() []DictVal {
 }
 
 // main method
-func main() {
+func DictionaryMain() {
 
 	var dict *Dictionary = &Dictionary{}
 

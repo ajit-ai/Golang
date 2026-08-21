@@ -1,35 +1,30 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
 // importing fmt package
 import (
 	"fmt"
-	"strconv"
 )
 
-// hash method
-func hash(str string) int {
+// hash method computes a polynomial rolling hash of the string
+func stringHash(str string) int {
 
 	var constant int
 
-	var strint int
-
 	constant = 42
-	var err error
-	strint, err = strconv.Atoi(str)
 
-	constant = constant * strint
+	var hashCode int
+	for i := 0; i < len(str); i++ {
+		hashCode = hashCode*constant + int(str[i])
+	}
 
-	fmt.Println(strint)
-
-	fmt.Println(err)
-	return constant
+	return hashCode
 
 }
 
 // main method
-func main() {
+func HashStringMain() {
 
 	var str string
 
@@ -37,7 +32,7 @@ func main() {
 
 	var hashCode int
 
-	hashCode = hash(str)
+	hashCode = stringHash(str)
 
 	fmt.Println(hashCode)
 

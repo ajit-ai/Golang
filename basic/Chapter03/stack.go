@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-//Element class
+// Element class
 type Element struct {
 	elementValue int
 }
@@ -50,7 +50,7 @@ func (stack *Stack) Pop() *Element {
 		stack.elements = stack.elements[:length-1]
 
 	} else {
-		stack.elements = stack.elements[0:]
+		stack.elements = stack.elements[:0]
 
 	}
 	stack.elementCount = len(stack.elements)
@@ -58,7 +58,7 @@ func (stack *Stack) Pop() *Element {
 }
 
 // main method
-func main() {
+func StackMain() {
 	var stack *Stack = &Stack{}
 	stack.New()
 	var element1 *Element = &Element{3}

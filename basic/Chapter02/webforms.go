@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -11,14 +11,14 @@ import (
 	"log"
 )
 
-func Home(writer http.ResponseWriter, reader *http.Request) {
+func WebFormsHome(writer http.ResponseWriter, reader *http.Request) {
 	var template_html *template.Template
 	template_html = template.Must(template.ParseFiles("main.html"))
 	template_html.Execute(writer, nil)
 
 }
 
-func main() {
+func WebFormsMain() {
 	log.Println("Server started on: http://localhost:8000")
 	//  var template_html *template.Template
 	//template_html = template.Must(template.ParseFiles("main.html"))

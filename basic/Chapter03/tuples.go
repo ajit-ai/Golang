@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-//h function which returns the product of parameters x and y
+// h function which returns the product of parameters x and y
 func h(x int, y int) int {
 
 	return x * y
@@ -21,7 +21,7 @@ func g(l int, m int) (x int, y int) {
 }
 
 // main method
-func main() {
+func TuplesMain() {
 
 	fmt.Println(h(g(1, 2)))
 }

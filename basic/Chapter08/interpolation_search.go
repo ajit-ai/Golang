@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-//interpolation search method
+// interpolation search method
 func InterpolationSearch(elements []int, element int) (bool, int) {
 	var mid int
 	var low int
@@ -34,12 +34,10 @@ func InterpolationSearch(elements []int, element int) (bool, int) {
 	} else {
 		return false, -1
 	}
-
-	return false, -1
 }
 
 // main method
-func main() {
+func InterpolationSearchMain() {
 
 	var elements []int
 

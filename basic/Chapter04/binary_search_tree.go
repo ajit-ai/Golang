@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -60,7 +60,7 @@ func (tree *BinarySearchTree) InOrderTraverseTree(function func(int)) {
 	inOrderTraverseTree(tree.rootNode, function)
 }
 
-//  inOrderTraverseTree method
+// inOrderTraverseTree method
 func inOrderTraverseTree(treeNode *TreeNode, function func(int)) {
 	if treeNode != nil {
 		inOrderTraverseTree(treeNode.leftNode, function)
@@ -76,7 +76,7 @@ func (tree *BinarySearchTree) PreOrderTraverseTree(function func(int)) {
 	preOrderTraverseTree(tree.rootNode, function)
 }
 
-//  preOrderTraverseTree method
+// preOrderTraverseTree method
 func preOrderTraverseTree(treeNode *TreeNode, function func(int)) {
 	if treeNode != nil {
 		function(treeNode.value)
@@ -92,7 +92,7 @@ func (tree *BinarySearchTree) PostOrderTraverseTree(function func(int)) {
 	postOrderTraverseTree(tree.rootNode, function)
 }
 
-//  postOrderTraverseTree method
+// postOrderTraverseTree method
 func postOrderTraverseTree(treeNode *TreeNode, function func(int)) {
 	if treeNode != nil {
 		postOrderTraverseTree(treeNode.leftNode, function)
@@ -143,7 +143,7 @@ func (tree *BinarySearchTree) SearchNode(key int) bool {
 	return searchNode(tree.rootNode, key)
 }
 
-//  searchNode method
+// searchNode method
 func searchNode(treeNode *TreeNode, key int) bool {
 	if treeNode == nil {
 		return false
@@ -161,10 +161,10 @@ func searchNode(treeNode *TreeNode, key int) bool {
 func (tree *BinarySearchTree) RemoveNode(key int) {
 	tree.lock.Lock()
 	defer tree.lock.Unlock()
-	removeNode(tree.rootNode, key)
+	tree.rootNode = removeNode(tree.rootNode, key)
 }
 
-//  removeNode method
+// removeNode method
 func removeNode(treeNode *TreeNode, key int) *TreeNode {
 	if treeNode == nil {
 		return nil
@@ -241,7 +241,7 @@ func print(tree *BinarySearchTree) {
 	}
 }
 
-//printTreeNode method
+// printTreeNode method
 func printTreeNode(treeNode *TreeNode) {
 	if treeNode != nil {
 		fmt.Println(" Value", treeNode.value)
@@ -256,7 +256,7 @@ func printTreeNode(treeNode *TreeNode) {
 }
 
 // main method
-func main() {
+func BinarySearchTreeMain() {
 	var tree *BinarySearchTree = &BinarySearchTree{}
 	tree.InsertElement(8, 8)
 	tree.InsertElement(3, 3)

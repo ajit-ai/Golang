@@ -151,7 +151,7 @@ func atomicExample() {
 	fmt.Printf("Final counter value: %d\n", counter)
 }
 
-func main() {
+func AdvancedMain() {
 	fmt.Println("1. Goroutines and Channels")
 	goroutinesAndChannels()
 	fmt.Println("\n2. Context Example")

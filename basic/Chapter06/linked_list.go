@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -33,7 +33,7 @@ func CreateLinkedList() *Node {
 	return headNode
 }
 
-//Stringify  List method
+// Stringify  List method
 func StringifyList(nodeList *Node) {
 
 	var currNode *Node
@@ -71,7 +71,7 @@ func ReverseLinkedList(nodeList *Node) *Node {
 }
 
 // main method
-func main() {
+func LinkedListMain() {
 
 	var linkedList = CreateLinkedList()
 	StringifyList(linkedList)

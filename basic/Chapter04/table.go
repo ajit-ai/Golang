@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -26,7 +26,7 @@ type Column struct {
 	Value string
 }
 
-//printTable method
+// printTable method
 func printTable(table Table) {
 
 	var rows []Row = table.Rows
@@ -46,7 +46,7 @@ func printTable(table Table) {
 }
 
 // main method
-func main() {
+func TableMain() {
 
 	var table Table = Table{}
 	table.Name = "Customer"

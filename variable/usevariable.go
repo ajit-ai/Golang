@@ -12,7 +12,7 @@ type Person struct {
 	age  int
 }
 
-func main() {
+func UseVariableMain() {
 	// 1. Basic declaration
 	var a int
 	a = 10

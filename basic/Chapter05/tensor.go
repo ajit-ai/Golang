@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -8,8 +8,8 @@ import (
 	"math/rand"
 )
 
-//main method
-func main() {
+// main method
+func TensorMain() {
 
 	var array [3][3][3]int
 	var i int

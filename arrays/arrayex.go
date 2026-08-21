@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func ArrayExMain() {
 
 	var a [5]int
 	fmt.Println("emp:", a)
@@ -35,4 +35,12 @@ func main() {
 		{1, 2, 3},
 	}
 	fmt.Println("2d: ", twoD)
+}
+
+// main runs the demo entry points of this package
+func main() {
+	ArrayExMain()
+	ArraysUseMain()
+	TwodArrayMain()
+	TwodSliceMain()
 }

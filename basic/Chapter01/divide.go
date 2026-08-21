@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,24 +7,24 @@ import (
 	"fmt"
 )
 
-// fibonacci method given k integer
-func fibonacci(k int) int {
+// Fibonacci method given k integer
+func Fibonacci(k int) int {
 
 	if k <= 1 {
 		return 1
 	}
-	return fibonacci(k-1) + fibonacci(k-2)
+	return Fibonacci(k-1) + Fibonacci(k-2)
 
 }
 
-// main method
-func main() {
+// DivideMain method
+func DivideMain() {
 
 	var m int = 5
 
 	for m = 0; m < 8; m++ {
 
-		var fib = fibonacci(m)
+		var fib = Fibonacci(m)
 		fmt.Println(fib)
 	}
 

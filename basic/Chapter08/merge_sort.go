@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -62,10 +62,10 @@ func JoinArrays(leftArr []int, rightArr []int) []int {
 }
 
 // main method
-func main() {
+func MergeSortMain() {
 
 	var elements []int
 	elements = createArray(40)
-	fmt.Println("\n Before Sorting \n\n", elements)
-	fmt.Println("\n-After Sorting\n\n", MergeSorter(elements), "\n")
+	fmt.Println("\n Before Sorting ", elements)
+	fmt.Println("\n-After Sorting", MergeSorter(elements))
 }

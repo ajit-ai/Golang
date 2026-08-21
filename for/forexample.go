@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func ForExampleMain() {
 
 	i := 1
 	for i <= 3 {
@@ -29,4 +29,10 @@ func main() {
 		}
 		fmt.Println(n)
 	}
+}
+
+// main runs the demo entry points of this package
+func main() {
+	ForExampleMain()
+	ForUseMain()
 }

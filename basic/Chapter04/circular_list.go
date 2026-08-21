@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -9,7 +9,7 @@ import (
 )
 
 // main method
-func main() {
+func CircularListMain() {
 
 	var integers []int
 	integers = []int{1, 3, 5, 7}

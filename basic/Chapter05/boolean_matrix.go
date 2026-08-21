@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-//changeMatrix method
+// changeMatrix method
 func changeMatrix(matrix [3][3]int) [3][3]int {
 	var i int
 	var j int
@@ -39,7 +39,7 @@ func changeMatrix(matrix [3][3]int) [3][3]int {
 
 }
 
-//printMatrix method
+// printMatrix method
 func printMatrix(matrix [3][3]int) {
 	var i int
 	var j int
@@ -56,8 +56,8 @@ func printMatrix(matrix [3][3]int) {
 
 }
 
-//main method
-func main() {
+// main method
+func BooleanMatrixMain() {
 
 	var matrix = [3][3]int{{1, 0, 0}, {0, 0, 0}, {0, 0, 0}}
 
@@ -67,4 +67,20 @@ func main() {
 
 	printMatrix(matrix)
 
+}
+
+// main runs the demo entry points of this package
+func main() {
+	BooleanMatrixMain()
+	ColumnMatrixMain()
+	IdentityMatrixMain()
+	LowerTriangularMain()
+	MultidarrayMain()
+	NullMatrixMain()
+	RowMatrixMain()
+	SpiralMatrixMain()
+	TensorMain()
+	TwodMatrixMain()
+	UpperTriangularMain()
+	ZigZagMatrixMain()
 }

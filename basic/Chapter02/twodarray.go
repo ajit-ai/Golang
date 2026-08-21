@@ -1,5 +1,5 @@
-//main package has examples shown
-//in Hands-On Data Structures and algorithms with Go book
+// main package has examples shown
+// in Hands-On Data Structures and algorithms with Go book
 package main
 
 // importing fmt package
@@ -8,7 +8,7 @@ import (
 )
 
 // main method
-func main() {
+func TwodArrayMain() {
 	var TwoDArray [8][8]int
 
 	TwoDArray[3][6] = 18

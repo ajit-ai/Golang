@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -12,8 +12,8 @@ import (
 	"log"
 )
 
-//main method
-func main() {
+// main method
+func HashMain() {
 	const (
 		example1 = "this is a example "
 		example2 = "second example"

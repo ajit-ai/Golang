@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -43,7 +43,7 @@ func (treeset *TreeSet) String() {
 }
 
 // main method
-func main() {
+func TreeSetMain() {
 	var treeset *TreeSet = &TreeSet{}
 
 	treeset.bst = &BinarySearchTree{}

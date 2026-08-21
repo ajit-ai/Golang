@@ -7,7 +7,7 @@ import (
 )
 
 // main method
-func main() {
+func MapsMain() {
 
 	var languages = map[int]string{
 

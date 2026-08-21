@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -9,7 +9,7 @@ import (
 )
 
 // main method
-func main() {
+func BinarySearchMain() {
 	var elements []int
 	elements = []int{1, 3, 16, 10, 45, 31, 28, 36, 45, 75}
 	var element int
@@ -23,4 +23,20 @@ func main() {
 	} else {
 		fmt.Printf("element %d not found in %v\n", element, elements)
 	}
+}
+
+// main runs the demo entry points of this package
+func main() {
+	BinarySearchMain()
+	BubbleSortMain()
+	HashMain()
+	HashStringMain()
+	InsertionSortMain()
+	InterpolationSearchMain()
+	LinearSearchMain()
+	MergeSortMain()
+	QuickSortMain()
+	RecurseFactorialMain()
+	SelectionSortMain()
+	ShellSortMain()
 }

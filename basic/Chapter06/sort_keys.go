@@ -1,4 +1,4 @@
-///main package has examples shown
+// /main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"sort"
 )
-
 
 type Mass float64
 type Miles float64
@@ -56,14 +55,13 @@ func (ThingSorter *ThingSorter) Less(i int, j int) bool {
 }
 
 // main method
-func main() {
+func SortKeysMain() {
 	var Things = []Thing{
 		{"IronRod", 0.055, 0.4, 3000, -180},
 		{"SteelChair", 0.815, 0.7, 4000, -209},
 		{"CopperBowl", 1.0, 1.0, 60, -30},
 		{"BrassPot", 0.107, 1.5, 10000, -456},
 	}
-
 
 	var name func(*Thing, *Thing) bool
 	name = func(Thing1 *Thing, Thing2 *Thing) bool {
@@ -81,7 +79,6 @@ func main() {
 	decreasingDistance = func(p1, p2 *Thing) bool {
 		return distance(p2, p1)
 	}
-
 
 	ByFactor(name).Sort(Things)
 	fmt.Println("By name:", Things)

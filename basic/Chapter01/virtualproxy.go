@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -7,25 +7,25 @@ import (
 	"fmt"
 )
 
-//IRealObject interface
+// IRealObject interface
 type IRealObject interface {
 	performAction()
 }
 
-//RealObject struct
+// RealObject struct
 type RealObject struct{}
 
-//RealObject class method performAction
+// RealObject class method performAction
 func (realObject *RealObject) performAction() {
 	fmt.Println("RealObject performAction()")
 }
 
-//VirtualProxy struct
+// VirtualProxy struct
 type VirtualProxy struct {
 	realObject *RealObject
 }
 
-//VirtualProxy class method performAction
+// VirtualProxy class method performAction
 func (virtualProxy *VirtualProxy) performAction() {
 	if virtualProxy.realObject == nil {
 		virtualProxy.realObject = &RealObject{}
@@ -34,8 +34,8 @@ func (virtualProxy *VirtualProxy) performAction() {
 	virtualProxy.realObject.performAction()
 }
 
-// main method
-func main() {
+// VirtualProxyMain method
+func VirtualProxyMain() {
 	var object VirtualProxy = VirtualProxy{}
 	object.performAction()
 }

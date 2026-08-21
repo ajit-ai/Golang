@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Go Data Structures and algorithms book
 package main
 
@@ -49,19 +49,19 @@ func (branch *Branch) add(leaf Leaflet) {
 
 }
 
-//Branch class method addBranch branch
+// Branch class method addBranch branch
 func (branch *Branch) addBranch(newBranch Branch) {
 
 	branch.branches = append(branch.branches, newBranch)
 }
 
-//Branch class  method getLeaflets
+// Branch class  method getLeaflets
 func (branch *Branch) getLeaflets() []Leaflet {
 	return branch.leafs
 }
 
-// main method
-func main() {
+// CompositeMain method
+func CompositeMain() {
 
 	var branch = &Branch{name: "branch 1"}
 

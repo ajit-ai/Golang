@@ -27,7 +27,9 @@ func mergeInt(left, right []int) []int {
 			j++
 		}
 	}
-	return append(result, left[i:]...)
+	result = append(result, left[i:]...)
+	result = append(result, right[j:]...)
+	return result
 }
 
 // 2. Merge sort for []int (descending)
@@ -52,7 +54,9 @@ func mergeIntDesc(left, right []int) []int {
 			j++
 		}
 	}
-	return append(result, left[i:]...)
+	result = append(result, left[i:]...)
+	result = append(result, right[j:]...)
+	return result
 }
 
 // 3. Merge sort for []float64 (ascending)
@@ -77,7 +81,9 @@ func mergeFloat(left, right []float64) []float64 {
 			j++
 		}
 	}
-	return append(result, left[i:]...)
+	result = append(result, left[i:]...)
+	result = append(result, right[j:]...)
+	return result
 }
 
 // 4. Merge sort for []string (ascending)
@@ -102,7 +108,9 @@ func mergeString(left, right []string) []string {
 			j++
 		}
 	}
-	return append(result, left[i:]...)
+	result = append(result, left[i:]...)
+	result = append(result, right[j:]...)
+	return result
 }
 
 // 5. Merge sort for []string (case-insensitive)
@@ -127,7 +135,9 @@ func mergeStringCI(left, right []string) []string {
 			j++
 		}
 	}
-	return append(result, left[i:]...)
+	result = append(result, left[i:]...)
+	result = append(result, right[j:]...)
+	return result
 }
 
 // 6. Merge sort for []rune (ascending)

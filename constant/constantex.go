@@ -112,7 +112,7 @@ const (
 	BufferSize = 1024
 )
 
-func main() {
+func ConstantExMain() {
 	fmt.Println("Pi:", Pi)
 	fmt.Println("Zero, One, Two, Three:", Zero, One, Two, Three)
 	fmt.Println("Greeting:", Greeting)
@@ -181,9 +181,17 @@ func main() {
 
 	// Using constants in map initialization
 	m := make(map[string]int, BufferSize)
+	m["key"] = 1
 	fmt.Println("Map capacity (hint):", BufferSize)
+	fmt.Println("Map length:", len(m))
 
 	// Using constants in time.Sleep
 	time.Sleep(time.Millisecond * 10)
 	fmt.Println("Slept for 10ms (not a constant, but uses time package)")
+}
+
+// main runs the demo entry points of this package
+func main() {
+	ConstantExMain()
+	ConstantsMain()
 }
