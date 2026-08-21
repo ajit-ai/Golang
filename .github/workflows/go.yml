@@ -43,7 +43,7 @@ jobs:
     - name: Test
       run: |
         set -o pipefail
-        if ! go test -race -timeout 10m ./... 2>&1 | tee test.log; then
+        if ! go test -race -timeout 10m -coverprofile=coverage.out ./... 2>&1 | tee test.log; then
           {
             echo "### Test failed"
             echo '```'
@@ -52,3 +52,20 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
           exit 1
         fi
+
+    - name: Coverage
+      if: always() && hashFiles('coverage.out') != ''
+      run: |
+        TOTAL=$(go tool cover -func=coverage.out | awk '/^total:/ {print $3}')
+        {
+          echo "### Coverage"
+          echo ""
+          echo "Total statement coverage: **$TOTAL**"
+          echo ""
+          echo "<details><summary>Per-function breakdown</summary>"
+          echo ""
+          echo '```'
+          go tool cover -func=coverage.out
+          echo '```'
+          echo "</details>"
+        } >> "$GITHUB_STEP_SUMMARY"
