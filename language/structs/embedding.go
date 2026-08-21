@@ -56,7 +56,7 @@ func (c *Counter) IncrementPointer() {
 type Config struct {
 	Host   string `json:"host" validate:"required"`
 	Port   int    `json:"port" validate:"min=1,max=65535"`
-	Debug   bool   `json:"debug,omitempty" validate:"optional"`
+	Debug  bool   `json:"debug,omitempty" validate:"optional"`
 	APIKey string `json:"-"` // "-" means skip entirely
 }
 
