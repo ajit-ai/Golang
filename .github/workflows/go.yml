@@ -1,5 +1,7 @@
 # This workflow builds, vets and tests the repository.
 # It runs on pushes and pull requests to main and develop.
+# Failures are mirrored into $GITHUB_STEP_SUMMARY so the error text
+# is readable without signing in.
 
 name: Go
 
@@ -28,7 +30,28 @@ jobs:
       run: go vet ./...
 
     - name: Build
-      run: go build -v ./...
+      run: |
+        set -o pipefail
+        if ! go build -v ./... 2>&1 | tee build.log; then
+          {
+            echo "### Build failed"
+            echo '```'
+            tail -80 build.log
+            echo '```'
+            echo "go version: $(go version)"
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 1
+        fi
 
     - name: Test
-      run: go test -race -timeout 10m ./...
+      run: |
+        set -o pipefail
+        if ! go test -race -timeout 10m ./... 2>&1 | tee test.log; then
+          {
+            echo "### Test failed"
+            echo '```'
+            grep -E "^(--- FAIL|FAIL|panic|WARNING)" test.log | head -50
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 1
+        fi
