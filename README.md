@@ -1,32 +1,60 @@
-### Golang
+### Golang — a hands-on Go learning repository
 
-Go is a procedural programming language. It was developed in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson at Google but launched in 2009 as an open-source programming language. Programs are assembled by using packages, for efficient management of dependencies. This language also supports environment adopting patterns alike to dynamic languages. For eg., type inference (y := 0 is a valid declaration of a variable y of type int).
+A structured collection of runnable Go example programs, from language basics
+to concurrency patterns, each with unit tests. Every directory is a
+self-contained `package main` demo (one `main()` per directory that calls the
+per-file `<Topic>Main()` entry points), except `pkg/`, which is a real
+importable library.
 
-Go is a statically typed, concurrent, and garbage-collected programming language created at Google in 2009. It is designed to be simple, efficient, and easy to learn, making it a popular choice for building scalable network services, web applications, and command-line tools.
+## Repository layout
 
-Go is known for its support for concurrency, which is the ability to run multiple tasks simultaneously. Concurrency is achieved in Go through the use of Goroutines and Channels, which allow you to write code that can run multiple operations at the same time. This makes Go an ideal choice for building high-performance and scalable network services, as well as for solving complex computational problems.
+| Folder | Contents |
+|---|---|
+| `basics/` | variables, constants, expressions, for, if/else, switch, functions |
+| `collections/` | arrays, slices, maps (incl. 100-example deep dives) |
+| `language/` | generics, interfaces, structs & embedding, modern error handling |
+| `algorithms/` | bubble, insertion, merge, selection sort with tests |
+| `basic/Chapter01–10` | book-style chapters: patterns, complexity, data structures, matrices, sorting, graphs, memory & GC simulation |
+| `concurrency/` | worker pools, pipelines, fan-in/fan-out, semaphores, graceful shutdown (race-detector clean) |
+| `stdlib/` | JSON, file I/O & CSV, HTTP JSON API (Go 1.22 routing), CLI flags, context |
+| `demo/` | large mixed showcase incl. 80+ classic problems, benchmarks, fuzzing |
+| `testing/` | minimal introduction to Go tests |
+| `pkg/gostack/` | importable generic stack library |
+| `examples/` | programs that consume `pkg/` libraries |
 
-Another important feature of Go is its garbage collection, which automatically manages memory for you. This eliminates the need for manual memory management, reducing the likelihood of memory leaks and other bugs that can arise from manual memory management.
+## Quick start
 
-Go, also known as Golang, is an open-source programming language created by Google in 2007. It was designed to be efficient, easy to learn and to provide support for modern hardware architectures. Go is often used for building large-scale distributed systems and high-performance applications.
+Requires Go 1.22+ (`go.mod` / `go.work` included).
 
-Here are some key features of Go:
-Simplicity: Go is designed to be easy to learn and use. Its syntax is simple and straightforward, making it a good choice for beginners and experienced programmers alike.
-Concurrency: Go has built-in support for concurrency, allowing developers to write efficient and scalable code for multicore and distributed systems.
-Garbage collection: Go has automatic memory management, which frees developers from having to worry about memory allocation and deallocation.
-Fast compile times: Go has a fast compiler, which makes it easy to iterate quickly during development.
-Cross-platform support: Go can be compiled to run on many different platforms, including Windows, Linux, and macOS.
-Strong typing: Go is a statically typed language, which helps catch errors at compile time rather than at runtime.
-Go has a large and growing community of developers and is used by many well-known companies, including Google, Uber, and Dropbox.
-Here are some important points to keep in mind about Go programming language:
-Go is a statically typed language, which means that the type of a variable must be declared before it can be used.
-Go has a built-in garbage collector that automatically frees up memory when it is no longer needed.
-Go has strong support for concurrency, allowing developers to write efficient and scalable code for multicore and distributed systems.
-Go has a minimalist syntax that is easy to learn and read.
-Go has a fast compiler that generates code that is optimized for modern hardware architectures.
-Go has a standard library that provides support for a wide range of functionality, including networking, encryption, and file handling.
-Go has a growing community of developers and a vibrant ecosystem of third-party packages and tools.
-Go is used by many well-known companies for building large-scale distributed systems and high-performance applications.
-Overall, Go is a powerful and efficient programming language that is well-suited for building modern applications and distributed systems. Its strong support for concurrency and minimalist syntax make it an attractive choice for developers who want to build scalable and efficient applications.
+```bash
+# run any demo (from the repository root)
+go run ./basics/functions
+go run ./language/generics
+go run ./concurrency
 
-#
+# run every test
+go test ./...
+
+# race-detector pass over the concurrency examples
+go test -race ./concurrency
+
+# benchmarks: strings.Builder vs += concatenation
+go test ./demo -bench . -run XXX
+
+# fuzzing (discovers inputs automatically)
+go test ./demo -run FuzzIsPalindrome -fuzz FuzzIsPalindrome -fuzztime 30s
+
+# library usage example
+go run ./examples/gostack-demo
+```
+
+## Notes
+
+- Demos that need external resources are excluded from auto-runners and must be
+  started manually: `stdlib/httpapi` (serves :8080), `basic/Chapter02`
+  CRM/webform servers (MySQL + :8000), `basic/Chapter03` SyncQueueMain
+  (endless demo).
+- `FACTCHECK.md` documents the full audit of this code base: bugs found,
+  fixes applied, and known quirks kept intentionally.
+- CI (`.github/workflows/go.yml`) runs gofmt check, vet, build and
+  `go test -race` on pushes and PRs to `main` and `develop`.
