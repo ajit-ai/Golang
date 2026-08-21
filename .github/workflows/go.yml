@@ -33,13 +33,10 @@ jobs:
       run: |
         set -o pipefail
         if ! go build -v ./... 2>&1 | tee build.log; then
-          {
-            echo "### Build failed"
-            echo '```'
-            tail -80 build.log
-            echo '```'
-            echo "go version: $(go version)"
-          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::error::go $(go version)"
+          tail -8 build.log | while IFS= read -r line; do
+            echo "::error::$line"
+          done
           exit 1
         fi
 
